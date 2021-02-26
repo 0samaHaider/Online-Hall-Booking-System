@@ -1,0 +1,76 @@
+﻿@model IEnumerable<qwerty.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPage2.cshtml";
+}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+@using (Html.BeginForm("Index", "VeiwBooking", FormMethod.Get))
+{
+    @Html.TextBox("searching")
+    <input value="Search" type="submit" class="w3-button w3-green" />
+
+}
+<button onclick="document.location='https://localhost:44334/VeiwBooking/Index'" class="w3-button w3-teal">Refresh </button>
+
+<table class="table">
+    <tr>
+        <th>
+            User ID
+        </th>
+        <th>
+            User Name
+        </th>
+        <th>
+            User Email
+        </th>
+        <th>
+            User Phone #
+        </th>
+        <th>
+            Venue
+        </th>
+        <th>
+            Status
+        </th>
+        <th></th>
+    </tr>
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td align="left" style="color:red">
+                <b> No Match Found !!</b>
+            </td>
+        </tr>
+    }
+    else
+    {
+
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mobile)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Select_Venue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+
+            </tr>
+        }
+    }
+
+</table>

@@ -1,0 +1,70 @@
+﻿@model qwerty.Models.User
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/_LayoutPage2.cshtml";
+}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<b><h4 style="color:red;">Are You Sure to Want delete this ? </h4> </b>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Select_Venue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Select_Venue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="w3-button w3-green" />
+            
+        </div>
+    }
+    <br />
+    <button onclick="document.location='https://localhost:44334/User/Index'" class="w3-button w3-red">Back to List</button>
+
+</div>

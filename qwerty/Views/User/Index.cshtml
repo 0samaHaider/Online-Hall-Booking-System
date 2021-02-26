@@ -1,0 +1,88 @@
+﻿@model IEnumerable<qwerty.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPage2.cshtml";
+}
+
+@using (Html.BeginForm("Index", "User", FormMethod.Get))
+{
+    @Html.TextBox("searching")
+    <input value="Search" type="submit" class="w3-button w3-green" />
+}
+
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<button onclick="document.location='https://localhost:44334/User/Create'" class="w3-button w3-green">Add New </button>
+<button onclick="document.location='https://localhost:44334/User/Index'" class="w3-button w3-teal">Refresh </button>
+
+
+
+<table class="table">
+    <tr>
+        <th >
+            <b> User @Html.DisplayNameFor(model => model.ID) </b>
+        </th>
+
+        <th>
+            <b> User @Html.DisplayNameFor(model => model.Name) </b>
+        </th>
+        <th>
+            User  @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            User @Html.DisplayNameFor(model => model.Mobile)
+        </th>
+
+        <th>
+            User Venue
+        </th>
+
+        <th>
+            User   @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            Operations
+        </th>
+    </tr>
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td align="left" style="color:red">
+                <b> No Match Found !!</b>
+            </td>
+        </tr>
+    }
+    else
+    {
+
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mobile)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Select_Venue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    }
+
+    </table>

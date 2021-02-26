@@ -1,0 +1,71 @@
+﻿@model IEnumerable<qwerty.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPage4.cshtml";
+}
+
+
+
+
+<table class="table">
+    <tr >
+        <th bgcolor="gray" >
+            User @Html.DisplayNameFor(model => model.ID)
+        </th>
+        <th bgcolor="gray">
+            User @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th bgcolor="gray">
+            User @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th bgcolor="gray">
+            User @Html.DisplayNameFor(model => model.Mobile)
+        </th>
+        <th bgcolor="gray">
+            User Selected Venue
+        </th>
+        <th bgcolor="gray">
+            Booking Status
+        </th>
+        <th bgcolor="gray">
+            Operations
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Mobile)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Select_Venue)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Status)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+    </td>
+</tr>
+    }
+
+</table>
+<br />
+<br />
+<b>
+    <p style="color : deepskyblue">
+        * If You Delete Your account from here then you have to Sign-Up again !!
+    </p>  
+</b>

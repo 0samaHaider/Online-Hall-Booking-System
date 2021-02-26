@@ -1,0 +1,53 @@
+﻿@model qwerty.Models.Owner
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/_LayoutPage2.cshtml";
+}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<b><h4 style="color:red;">Are You Sure to Want delete this ? </h4> </b>
+
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class=" form-group">
+            <input type="submit" value="Delete" class="w3-button w3-green" /> 
+        </div>
+    }
+    <button onclick="document.location='https://localhost:44334/Owner/Index'" class="w3-button w3-red">Back to List</button>
+
+</div>

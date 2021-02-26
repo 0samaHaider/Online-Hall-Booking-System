@@ -1,0 +1,49 @@
+﻿@model qwerty.Models.venueinfo
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/_LayoutPage3.cshtml";
+}
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <b><h4 style="color:darkgreen;">Edit Details </h4> </b>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Venue_Location, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Venue_Location, new List<SelectListItem>
+                       { new SelectListItem{Text="Islamabad", Value="Islamabad"},
+                        new SelectListItem{Text="Rawalpindi", Value="Rawalpindi"} },
+                         "Please select Venue")
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="number">
+            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="w3-button w3-green" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    <button onclick="document.location='https://localhost:44334/Venue/Index'" class="w3-button w3-red">Back to List</button>
+</div>

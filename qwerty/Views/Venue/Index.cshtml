@@ -1,0 +1,198 @@
+﻿@model IEnumerable<qwerty.Models.venueinfo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPage3.cshtml";
+}
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial;
+    }
+
+    /* The grid: Four equal columns that floats next to each other */
+    .column {
+        float: left;
+        width: 25%;
+        padding: 10px;
+    }
+
+        /* Style the images inside the grid */
+        .column img {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+            .column img:hover {
+                opacity: 1;
+            }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* The expanding image container */
+    .container {
+        position: relative;
+        display: none;
+    }
+
+    /* Expanding image text */
+    #imgtext {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        color: white;
+        font-size: 20px;
+    }
+
+    /* Closable button inside the expanded image */
+    .closebtn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        color: white;
+        font-size: 35px;
+        cursor: pointer;
+    }
+
+    h4 {
+        text-align: center;
+    }
+</style>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<button onclick="document.location='https://localhost:44334/Venue/Create'" class="w3-button w3-green">Add New </button>
+<table class="table">
+    <tr>
+        <th bgcolor="gray">
+            Venue ID
+        </th>
+
+        <th bgcolor="gray">
+            Venue Location
+        </th>
+        <th bgcolor="gray">
+            Price/ Per Day
+        </th>
+        <th bgcolor="gray">Operations</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Venue_Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+
+            </td>
+
+
+        </tr>
+    }
+
+</table>
+<b>*</b>All guest room rates are quoted exclusive of applicable state and local taxes, which are currently 15%.  Reservations will be cancelled if registered hotel guests do not  contact the hotel.
+<h5>
+    <b> Making Hotel Reservations</b>
+
+</h5>
+<p>
+    <b>Telephone: </b>
+    Attendees may make room reservations by calling the 24-hour group reservations center at 1-888-627- <br />
+    <b>
+        Online:
+    </b>
+    Click on the below link to make reservations online <br />
+    www.hotel.Divane.com.pk<br />
+    <h5>
+        <b>Alternative Hotel Reservations:</b>
+
+    </h5>
+    Now that the hotel reservations deadline has passed, if you experience difficulty securing your desired hotel reservations at the Hotel-Diwane, below are nearby hotels and their contact information.  We have made arrangements with the La Quinta Inn Austin Capitol for SAGEEP attendees to use a special process to secure the best rate available.  Conference goers may call the telephone number listed (press option 3) and ask to speak to our contact, LaSonya, from 8 am to 4:30 pm Central Time.  If you are unable to reach her, please leave a message and mention you are part of the DI-wane group.
+
+    <br />
+    <hr />
+    <b>La Quinta Inn Austin Capitol</b>
+    <br />
+    300 East 11th St<br />
+    (512) 476-1166, press option 3<br />
+    Contact LaSonya directly at (512) 476-1166 between 8am and 4:30pm CT , press option 3 on the automated message, and either speak to her directly or leave a message and mention the SAGEEP conference.<br />
+
+    <br />
+    <hr />
+    <b>Hilton Garden Inn Austin Downtown Convention Center</b>
+    <br />
+    N 500 Interstate 35 Frontage Rd<br />
+    (512) 480-8181
+    <br />
+    Contact LaSonya directly at (512) 476-1166 between 8am and 4:30pm CT , press option 3 on the automated message, and either speak to her directly or leave a message and mention the SAGEEP conference.<br />
+    <br />
+    <hr />
+    <h4>
+        <b> Plus Point* </b>
+    </h4>
+    <ul>
+        <li>Complimentary Internet in Guest Rooms	</li>
+        <li>
+            Express/Video Checkout Available
+        </li>
+        <li>Free Daily Newspaper	</li>
+
+        <li>	Bathrobes & Slippers	</li>
+        <li>
+            Radio/Alarm Clock
+        </li>
+        <li>
+            In-Room Safe
+        </li>
+    </ul>
+</p>
+<!-- The four columns -->
+<div class="row">
+    <div class="column">
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="Swiming Pool" style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="https://images.unsplash.com/photo-1444201983204-c43cbd584d93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="BedRoom" style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=755&q=80" alt="Lights" style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Lights" style="width:100%" onclick="myFunction(this);">
+    </div>
+</div>
+
+<div class="container">
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+    <img id="expandedImg" style="width:50%">
+    <div id="imgtext"></div>
+</div>
+
+<script>
+    function myFunction(imgs) {
+        var expandImg = document.getElementById("expandedImg");
+        var imgText = document.getElementById("imgtext");
+        expandImg.src = imgs.src;
+        imgText.innerHTML = imgs.alt;
+        expandImg.parentElement.style.display = "block";
+    }
+</script>
+
+
