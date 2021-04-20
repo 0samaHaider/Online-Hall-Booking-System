@@ -20,6 +20,9 @@ namespace qwerty.Controllers
         {
             ViewBag.Count = db.Owners.Count();
             ViewBag.User = db1.Users.Count();
+            ViewBag.User = db1.Users.Count();
+            ViewBag.User = db1.Users.Count();
+
             return View();
         }
         // GET: Account
