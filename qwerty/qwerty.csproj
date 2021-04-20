@@ -134,16 +134,6 @@
     <Content Include="Models\model3vinfo.edmx.diagram">
       <DependentUpon>model3vinfo.edmx</DependentUpon>
     </Content>
-    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.4.1.js" />
-    <Content Include="Scripts\jquery-3.4.1.min.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="styles\admin.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -257,8 +247,6 @@
     <Content Include="Views\ReqOfUsers\Delete.cshtml" />
     <Content Include="Views\_LayoutPage4.cshtml" />
     <Content Include="Views\Account\Verify4.cshtml" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="Views\UniqueUser\Index.cshtml" />
     <Content Include="Views\SignUp\Create.cshtml" />
     <Content Include="Views\VeiwBooking\ownerdashboard.cshtml" />
